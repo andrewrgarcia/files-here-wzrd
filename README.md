@@ -1,5 +1,7 @@
 # ShowFilesHere.sh
 
+Grab all information from a folder into a single text file!
+
 ## Overview
 `ShowFilesHere.sh` is a versatile bash script designed to list and display the content of files with specified extensions within the current directory and its subdirectories. By default, it ignores certain directories to keep your search focused and efficient. This tool is useful for developers, researchers, and students to quickly understand and navigate large codebases or datasets.
 
