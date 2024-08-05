@@ -3,6 +3,9 @@
 ## Overview
 `ShowFilesHere.sh` is a versatile bash script designed to list and display the content of files with specified extensions within the current directory and its subdirectories. By default, it ignores certain directories to keep your search focused and efficient. This tool is useful for developers, researchers, and students to quickly understand and navigate large codebases or datasets.
 
+![Script in Action](screenshots/mplfinance-1.png)
+![Script in Action](screenshots/mplfinance-2.png)
+
 ## Features
 - **Customizable File Search**: Specify one or more file extensions to list and display.
 - **Directory Ignoring**: By default, ignores `venv/`, `build/`, and `__pycache__/` directories to avoid clutter. Additional directories can be ignored using the `--ignore` flag.
