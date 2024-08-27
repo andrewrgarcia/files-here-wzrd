@@ -10,6 +10,8 @@ This tool is useful for developers, researchers, and students to quickly underst
 
 ![Script in Action](img/mplfinance-1.png)
 ![Script in Action](img/mplfinance-2.png)
+![Script in Action](img/to-gpt-1.png)
+![Script in Action](img/to-gpt-2.png)
 
 ## Features
 
