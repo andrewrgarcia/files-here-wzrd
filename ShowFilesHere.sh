@@ -11,6 +11,35 @@ output_file_content() {
 # Default directories to ignore
 ignore_dirs=("venv" "build" "__pycache__")
 
+# Display help section if --help is passed
+if [[ "$1" == "--help" ]]; then
+    echo "
+Usage: ./ShowFilesHere.sh [extensions] [--ignore DIR1 DIR2 ...] [--head=N] [--tail=N]
+
+List files with specified extensions and display their content.
+
+Examples:
+1. ./ShowFilesHere.sh
+   Lists all PYTHON files set by default and displays their content
+
+2. ./ShowFilesHere.sh js html css
+   Lists all files with .js, .html, and .css extensions only
+
+3. ./ShowFilesHere.sh tsx js html --ignore node_modules
+   Lists all files with .tsx, .js, and .html extensions and ignores those in the node_modules folder
+
+4. ./ShowFilesHere.sh py txt --ignore logs temp --tail=5
+   Lists files with .py and .txt extensions and shows the last 5 lines of the output
+
+5. ./ShowFilesHere.sh tex pdf --ignore feedback --head=20
+   Lists files with .tex and .pdf extensions, ignores those in the feedback folder, and shows the first 20 lines of the output
+
+To make a file with the entire output called show.txt, run:
+   ./ShowFilesHere.sh tex pdf --ignore feedback --head=20 > show.txt
+"
+    exit 0
+fi
+
 # Parse arguments
 extensions=()
 additional_ignore_dirs=()
