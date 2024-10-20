@@ -13,8 +13,8 @@ ignore_dirs=("venv" "build" "__pycache__")
 
 # Display help section if --help is passed
 if [[ "$1" == "--help" ]]; then
-    echo "
-Usage: ./ShowFilesHere.sh [extensions] [--ignore DIR1 DIR2 ...] [--head=N] [--tail=N]
+    cat << EOF
+Usage: ./ShowFilesHere.sh [extensions] [--ignore DIR1 DIR2 ...] [--head N] [--tail N]
 
 List files with specified extensions and display their content.
 
@@ -28,23 +28,25 @@ Examples:
 3. ./ShowFilesHere.sh tsx js html --ignore node_modules
    Lists all files with .tsx, .js, and .html extensions and ignores those in the node_modules folder
 
-4. ./ShowFilesHere.sh py txt --ignore logs temp --tail=5
+4. ./ShowFilesHere.sh py txt --ignore logs temp --tail 5
    Lists files with .py and .txt extensions and shows the last 5 lines of the output
 
-5. ./ShowFilesHere.sh tex pdf --ignore feedback --head=20
+5. ./ShowFilesHere.sh tex pdf --ignore feedback --head 20
    Lists files with .tex and .pdf extensions, ignores those in the feedback folder, and shows the first 20 lines of the output
 
 To make a file with the entire output called show.txt, run:
-   ./ShowFilesHere.sh tex pdf --ignore feedback --head=20 > show.txt
-"
+   ./ShowFilesHere.sh tex pdf --ignore feedback --head 20 > show.txt
+EOF
     exit 0
 fi
 
-# Parse arguments
+# Initialize variables
 extensions=()
 additional_ignore_dirs=()
 head_count=0
 tail_count=0
+
+# Argument parsing
 while [[ $# -gt 0 ]]; do
     case "$1" in
         --ignore)
@@ -54,13 +56,19 @@ while [[ $# -gt 0 ]]; do
                 shift
             done
             ;;
-        --head=*)
-            head_count="${1#*=}"
+        --head)
+            shift
+            head_count="$1"
             shift
             ;;
-        --tail=*)
-            tail_count="${1#*=}"
+        --tail)
             shift
+            tail_count="$1"
+            shift
+            ;;
+        -*)
+            echo "Unknown option: $1" >&2
+            exit 1
             ;;
         *)
             extensions+=("$1")
@@ -69,7 +77,7 @@ while [[ $# -gt 0 ]]; do
     esac
 done
 
-# Merge default ignore directories with additional ones
+# Merge default and additional ignore directories
 ignore_dirs+=("${additional_ignore_dirs[@]}")
 
 # Convert ignore directories to find -path arguments
@@ -86,34 +94,32 @@ fi
 # Create a temporary file to hold the output
 temp_file=$(mktemp)
 
-# Print the directory structure index of all files with the given extensions
+# Collect file paths and content
 {
-    echo "Index of files with the extensions: ${extensions[*]} in the directory structure (excluding ${ignore_dirs[*]}):"
+    echo "Index of files with the extensions: ${extensions[*]} (excluding ${ignore_dirs[*]}):"
     for ext in "${extensions[@]}"; do
         find . "${ignore_find_args[@]}" -type f -name "*.$ext" -print
     done
 
-    # Add a separator between the index and the file contents
     echo "==============================================="
     echo
 
-    # Export the function so it can be used with find
+    # Export the function to use with find
     export -f output_file_content
 
-    # Find all files with the given extensions recursively and output their content with headers
     for ext in "${extensions[@]}"; do
         find . "${ignore_find_args[@]}" -type f -name "*.$ext" -exec bash -c 'output_file_content "$0"' {} \;
     done
 } > "$temp_file"
 
-# Apply head or tail to the full output if specified
-if [ "$head_count" -gt 0 ]; then
+# Apply head or tail if specified
+if (( head_count > 0 )); then
     head -n "$head_count" "$temp_file"
-elif [ "$tail_count" -gt 0 ]; then
+elif (( tail_count > 0 )); then
     tail -n "$tail_count" "$temp_file"
 else
     cat "$temp_file"
 fi
 
-# Remove the temporary file
+# Clean up
 rm "$temp_file"
