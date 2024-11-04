@@ -110,7 +110,9 @@ We used the following prompt to generate the [honeycomb-simulation](https://gith
 
 
 ```
-Generate the complete code for a Next.js app that simulates honeybees in a honeycomb. Output the entire project in a .txt file where each file starts with <<< FILE START: <file_path> >>> and ends with <<< FILE END: <file_path> >>>.
+Generate the complete code for a Next.js app that simulates honeybees in a honeycomb. 
+Output the entire project in a .txt file where each file starts with <<< FILE START: 
+<file_path> >>> and ends with <<< FILE END: <file_path> >>>.
 ```
 
 By providing this prompt to GPT, you can obtain a `.txt` file with the entire project structured as specified. Use `MakeFilesHere.sh` to effortlessly reconstruct the project files from this output.
