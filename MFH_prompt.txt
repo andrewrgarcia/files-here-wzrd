@@ -1,0 +1,1 @@
+Generate the complete code for a Next.js app that simulates honeybees in a honeycomb. Output the entire project in a .txt file where each file starts with <<< FILE START: <file_path> >>> and ends with <<< FILE END: <file_path> >>>.
