@@ -106,7 +106,7 @@ You can leverage AI tools to generate code projects and reconstruct them using `
 
 #### Prompt Sample (`MFH_prompt.txt`)
 
-We used the following prompt to generate the [honeycomb-simulation](https://github.com/andrewrgarcia/honeycomb-simulation) repo ([animation shown here](https://honeycombsim.vercel.app)):
+We used the following prompt to generate the [honeycomb-simulation](https://github.com/andrewrgarcia/honeycomb-simulation) repo ([animation shown here 🍯🐝](https://honeycombsim.vercel.app)):
 
 
 ```
@@ -116,8 +116,6 @@ Output the entire project in a .txt file where each file starts with <<< FILE ST
 ```
 
 By providing this prompt to GPT, you can obtain a `.txt` file with the entire project structured as specified. Use `MakeFilesHere.sh` to effortlessly reconstruct the project files from this output.
-
-![Script in Action](img/honeycomb.png)
 
 
 #### Steps:
