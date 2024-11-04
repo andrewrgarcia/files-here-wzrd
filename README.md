@@ -1,6 +1,6 @@
 # files-here-wzrd
 
-A powerful toolset to capture and recreate directory structures with ease! Generate a comprehensive overview of your project files and rebuild them as needed.
+An intuitive toolset for capturing and recreating directory structures effortlessly! files-here-wzrd allows you to generate a complete snapshot of your project files in a single .txt file, ideal for sharing, backup, or AI-driven analysis. Easily rebuild entire directories from a text-based blueprint, and complement this process with powerful AI tools like GPT for project generation and insights.
 
 ## Overview
 
