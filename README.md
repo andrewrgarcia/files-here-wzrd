@@ -20,7 +20,6 @@ This toolkit is ideal for developers, researchers, and teams working with large 
 This tool is useful for developers, researchers, and students to quickly understand and navigate large codebases or datasets. The output can be used for analysis through advanced AI tools like ChatGPT, Gemini, etc.
 
 ![Script in Action](img/mplfinance-1.png)
-![Script in Action](img/mplfinance-2.png)
 ![Script in Action](img/to-gpt.png)
 
 ## Features
@@ -104,9 +103,9 @@ You can use the `ShowFilesHere.py` Python script directly or compile it into an 
 
 You can leverage AI tools to generate code projects and reconstruct them using `MakeFilesHere.sh`. For example, when interacting with GPT, you can provide a prompt to generate a complete project in the required format.
 
-#### Prompt Sample (`MFH_prompt.txt`)
+#### Prompt Sample (`MFH_prompt.txt`) 🍯🐝
 
-We used the following prompt to generate the [honeycomb-simulation](https://github.com/andrewrgarcia/honeycomb-simulation) repo ([animation shown here 🍯🐝](https://honeycombsim.vercel.app)):
+We used the following prompt to generate the [Honeycomb Simulation Web App](https://honeycombsim.vercel.app):
 
 
 ```
