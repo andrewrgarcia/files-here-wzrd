@@ -1,7 +1,7 @@
 
-# `MakeFilesHere.sh`
+# MakeFilesHere
 
-`MakeFilesHere.sh` is a powerful script that takes a structured `.txt` snapshot of your project (created by `ShowFilesHere.sh`) and reconstructs all files and directories exactly as they were. Ideal for seamlessly sharing complex projects, creating reproducible setups, and working with AI-generated file structures.
+`MakeFilesHere.sh` is a powerful algorithm that takes a structured `.txt` snapshot of your project and reconstructs all files and directories exactly as they were. Ideal for seamlessly sharing complex projects, creating reproducible setups, and working with AI-generated file structures.
 
 ## Features
 
@@ -67,3 +67,6 @@ By providing this prompt to GPT, you can obtain a `.txt` file with the entire pr
 - **Effortless Reconstruction**: Share your project in a single `.txt` file and use `MakeFilesHere.sh` to restore it.
 - **AI-Driven Development**: Generate entire projects using AI tools and reconstruct them with ease.
 
+## License
+
+These scripts are open-source and available under the [MIT License](LICENSE).
