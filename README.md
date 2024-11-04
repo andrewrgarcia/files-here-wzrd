@@ -106,10 +106,7 @@ You can leverage AI tools to generate code projects and reconstruct them using `
 
 #### Prompt Sample (`MFH_prompt.txt`)
 
-![Script in Action](img/honeycomb.png)
-
-
-We used the following prompt to generate the [Honeycomb Web App](https://github.com/andrewrgarcia/honeycomb-simulation):
+We used the following prompt to generate the [honeycomb-simulation](https://github.com/andrewrgarcia/honeycomb-simulation) repo ([animation shown here](https://honeycombsim.vercel.app)):
 
 
 ```
@@ -117,6 +114,9 @@ Generate the complete code for a Next.js app that simulates honeybees in a honey
 ```
 
 By providing this prompt to GPT, you can obtain a `.txt` file with the entire project structured as specified. Use `MakeFilesHere.sh` to effortlessly reconstruct the project files from this output.
+
+![Script in Action](img/honeycomb.png)
+
 
 #### Steps:
 
