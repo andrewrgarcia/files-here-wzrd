@@ -106,7 +106,11 @@ You can leverage AI tools to generate code projects and reconstruct them using `
 
 #### Prompt Sample (`MFH_prompt.txt`)
 
-We used the following prompt to generate the [Honeycomb Web App](link_to_app):
+![Script in Action](img/honeycomb.png)
+
+
+We used the following prompt to generate the [Honeycomb Web App](https://github.com/andrewrgarcia/honeycomb-simulation):
+
 
 ```
 Generate the complete code for a Next.js app that simulates honeybees in a honeycomb. Output the entire project in a .txt file where each file starts with <<< FILE START: <file_path> >>> and ends with <<< FILE END: <file_path> >>>.
