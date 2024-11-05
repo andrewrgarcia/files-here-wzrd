@@ -1,11 +1,12 @@
 #!/bin/bash
 
-# Function to output the content of a file
+# Function to output the content of a file with <<< >>> format and a space after each file
 output_file_content() {
     local file="$1"
-    echo "===== Content of $file ====="
+    echo "<<< FILE START: $file >>>"
     cat "$file"
-    echo "============================"
+    echo "<<< FILE END: $file >>>"
+    echo  # Add a blank line after each file
 }
 
 # Default directories to ignore

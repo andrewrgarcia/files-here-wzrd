@@ -1,11 +1,11 @@
 import os
 import argparse
 
-def output_file_content(file):
-    print(f"===== Content of {file} =====")
+def output_file_content(file, temp):
+    temp.write(f"<<< FILE START: {file} >>>\n")
     with open(file, 'r') as f:
-        print(f.read())
-    print("============================")
+        temp.write(f.read())
+    temp.write(f"<<< FILE END: {file} >>>\n\n")  # Add a blank line after each file
 
 # Default directories to ignore
 ignore_dirs = ["venv", "build", "__pycache__"]
@@ -58,10 +58,7 @@ with open(temp_file, 'w') as temp:
         dirs[:] = [d for d in dirs if os.path.join(root, d) not in ignore_find_args]
         for file in files:
             if any(file.endswith(f".{ext}") for ext in args.extensions):
-                temp.write(f"===== Content of {os.path.join(root, file)} =====\n")
-                with open(os.path.join(root, file), 'r') as f:
-                    temp.write(f.read())
-                temp.write("============================\n")
+                output_file_content(os.path.join(root, file), temp)  # Use the new format
 
 # Output content with head or tail option
 with open(temp_file, 'r') as temp:
