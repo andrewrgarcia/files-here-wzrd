@@ -8,9 +8,9 @@ Grab all information from a folder into a single text file!
 
 This tool is useful for developers, researchers, and students to quickly understand and navigate large codebases or datasets. The output can be used for analysis through advanced AI tools like ChatGPT, Gemini, etc.
 
-![Script in Action](img/mplfinance-1.png)
-![Script in Action](img/mplfinance-2.png)
-![Script in Action](img/to-gpt.png)
+![Script in Action](../img/mplfinance-1.png)
+![Script in Action](../img/mplfinance-2.png)
+![Script in Action](../img/to-gpt.png)
 
 ## Features
 
@@ -132,4 +132,4 @@ Use the generated `output_files_here.txt` for further analysis with AI tools lik
 
 ## License
 
-These scripts are open-source and available under the [MIT License](LICENSE).
+These scripts are open-source and available under the [MIT License](../LICENSE).
