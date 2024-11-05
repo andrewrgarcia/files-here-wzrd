@@ -1,0 +1,123 @@
+
+
+<<< FILE START: package.json >>>
+{
+  "name": "honeycomb-simulation",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "next": "latest",
+    "react": "latest",
+    "react-dom": "latest"
+  }
+}
+<<< FILE END: package.json >>>
+
+<<< FILE START: pages/_app.js >>>
+import '../styles/globals.css';
+
+function MyApp({ Component, pageProps }) {
+  return <Component {...pageProps} />;
+}
+
+export default MyApp;
+<<< FILE END: pages/_app.js >>>
+
+<<< FILE START: pages/index.js >>>
+import Honeycomb from '../components/Honeycomb';
+
+export default function Home() {
+  return (
+    <div style={{ textAlign: 'center' }}>
+      <h1>Honeybee Simulation in a Honeycomb</h1>
+      <Honeycomb />
+    </div>
+  );
+}
+<<< FILE END: pages/index.js >>>
+
+<<< FILE START: components/Honeycomb.js >>>
+import { useState, useEffect } from 'react';
+import styles from '../styles/Honeycomb.module.css';
+
+function getRandomInt(max) {
+  return Math.floor(Math.random() * max);
+}
+
+const Honeycomb = () => {
+  const [bees, setBees] = useState(Array.from({ length: 10 }, () => ({ x: getRandomInt(5), y: getRandomInt(5) })));
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setBees((prevBees) =>
+        prevBees.map((bee) => ({
+          x: (bee.x + getRandomInt(3) - 1 + 5) % 5,
+          y: (bee.y + getRandomInt(3) - 1 + 5) % 5,
+        }))
+      );
+    }, 500);
+    return () => clearInterval(interval);
+  }, []);
+
+  return (
+    <div className={styles.honeycomb}>
+      {Array.from({ length: 5 }).map((_, row) => (
+        <div key={row} className={styles.row}>
+          {Array.from({ length: 5 }).map((_, col) => (
+            <div key={col} className={styles.cell}>
+              {bees.some((bee) => bee.x === col && bee.y === row) ? '🐝' : ''}
+            </div>
+          ))}
+        </div>
+      ))}
+    </div>
+  );
+};
+
+export default Honeycomb;
+<<< FILE END: components/Honeycomb.js >>>
+
+<<< FILE START: styles/globals.css >>>
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #f3f4f6;
+}
+<<< FILE END: styles/globals.css >>>
+
+<<< FILE START: styles/Honeycomb.module.css >>>
+.honeycomb {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+}
+
+.row {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+}
+
+.cell {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #d1d5db;
+  background-color: #fef3c7;
+  border-radius: 4px;
+}
+<<< FILE END: styles/Honeycomb.module.css >>>
+
